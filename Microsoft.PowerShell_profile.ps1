@@ -1,6 +1,9 @@
 ### PowerShell Profile Refactor
 ### Version 1.03 - Refactored
 
+# Set location for oh-my-posh theme config
+$themeLocation = $HOME + '\oh-my-posh\themes\pwsh.omp.json'
+
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
 
@@ -225,8 +228,13 @@ function cpy { Set-Clipboard $args[0] }
 
 function pst { Get-Clipboard }
 
+# Updates all winget packages
+function winup { winget upgrade --all --silent }
+
+# Edit oh-my-posh theme
+function editTheme { code $themeLocation }
+
 ## Final Line to set prompt
-$themeLocation = $HOME + '\oh-my-posh\themes\pwsh.omp.json'
 oh-my-posh init pwsh --config $themeLocation | Invoke-Expression
 
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
