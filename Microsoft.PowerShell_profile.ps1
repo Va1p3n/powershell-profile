@@ -205,8 +205,6 @@ function gc { param($m) git commit -m "$m" }
 
 function gp { git push }
 
-function g { z Github }
-
 function gcom {
     git add .
     git commit -m "$args"
