@@ -201,7 +201,7 @@ function gs { git status }
 
 function ga { git add . }
 
-function gc { param($m) git commit -m "$m" }
+function gc { git commit }
 
 function gp { git push }
 
